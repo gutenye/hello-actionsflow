@@ -1,0 +1,13 @@
+on:
+  webhook:
+    method: post
+jobs:
+  hello:
+    name: Hello
+    runs-on: ubuntu-latest
+    steps:
+      - name: Print Outputs
+        env:
+          body: ${{ toJson(on.webhook.outputs.body.a) }}
+        run: |
+          echo body: $body
